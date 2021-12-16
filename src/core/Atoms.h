@@ -237,6 +237,8 @@ public:
   void setExtraCV(const std::string &name,const TypesafePtr & p);
   void setExtraCVForce(const std::string &name,const TypesafePtr & p);
   double getExtraCV(const std::string &name);
+  void setExtraCVDerivative(const std::string &name,void*p);
+  double* getExtraCVDerivative(const std::string &name);
   void updateExtraCVForce(const std::string &name,double f);
 };
 

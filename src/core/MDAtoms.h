@@ -114,6 +114,10 @@ public:
   virtual void setExtraCV(const std::string &name,const TypesafePtr& p)=0;
 /// Set a pointer to an extra CV force.
   virtual void setExtraCVForce(const std::string &name,const TypesafePtr & p)=0;
+/// Set a pointer to an extra CV and its derivative
+  virtual void setExtraCVDerivative(const std::string &name,void* val)=0;
+// Retrieve extra CV derivative
+  virtual double* getExtraCVDerivative(const std::string &name)=0;
 /// Retrieve the value of an extra CV.
   virtual double getExtraCV(const std::string &name)=0;
 /// Update the value of an extra CV force.

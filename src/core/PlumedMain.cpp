@@ -567,6 +567,11 @@ void PlumedMain::cmd(const std::string & word,const TypesafePtr & val) {
         plumed_assert(nw==2);
         atoms.setExtraCV(words[1],val);
         break;
+      case cmd_setExtraCVDerivative:
+        CHECK_NOTNULL(val,word);
+        plumed_assert(nw==2);
+        atoms.setExtraCVDerivative(words[1],val.getRaw());
+        break;
       case cmd_setExtraCVForce:
         CHECK_NOTNULL(val,word);
         plumed_assert(nw==2);

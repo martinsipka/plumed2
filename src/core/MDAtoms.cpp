@@ -74,6 +74,7 @@ class MDAtomsTyped:
   TypesafePtr virial;
   std::map<std::string,TypesafePtr> extraCV;
   std::map<std::string,TypesafePtr> extraCVForce;
+  std::map<std::string,double*> extraCVDerivative;
 public:
   void setm(const TypesafePtr & m) override;
   void setc(const TypesafePtr & m) override;
@@ -92,6 +93,9 @@ public:
     p.get<T*>(); // just check type and discard pointer
     extraCVForce[name]=p.copy();
   }
+  void setExtraCVDerivative(const std::string &name,void* p) override {
+    extraCVDerivative[name]=static_cast<double*>(p);
+  }
   double getExtraCV(const std::string &name) override {
     auto search=extraCV.find(name);
     if(search != extraCV.end()) {
@@ -100,6 +104,10 @@ public:
       plumed_error() << "Unable to access extra cv named '" << name << "'.\nNotice that extra cvs need to be calculated in the MD code.";
     }
   }
+  double* getExtraCVDerivative(const std::string &name) override {
+    return extraCVDerivative[name];
+  }
+
   void updateExtraCVForce(const std::string &name,double f) override {
     *extraCVForce[name].template get<T*>()+=static_cast<T>(f);
   }
@@ -384,4 +392,3 @@ std::unique_ptr<MDAtomsBase> MDAtomsBase::create(unsigned p) {
 }
 
 }
-

@@ -590,6 +590,14 @@ void Atoms::setExtraCV(const std::string &name,const TypesafePtr & p) {
   mdatoms->setExtraCV(name,p);
 }
 
+void Atoms::setExtraCVDerivative(const std::string &name,void*p) {
+  mdatoms->setExtraCVDerivative(name,p);
+}
+
+double* Atoms::getExtraCVDerivative(const std::string &name){
+  return mdatoms->getExtraCVDerivative(name);
+}
+
 void Atoms::setExtraCVForce(const std::string &name,const TypesafePtr & p) {
   mdatoms->setExtraCVForce(name,p);
 }
