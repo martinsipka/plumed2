@@ -1,0 +1,4 @@
+plumed_needs=python
+type=python
+arg="./python_ase.py"
+

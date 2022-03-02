@@ -1,0 +1,3 @@
+type=driver
+arg="--plumed plumed.dat --dump-forces forces --ixyz trajectory.xyz --dump-forces-fmt=%8.4f"
+extra_files="../../trajectories/trajectory.xyz"
