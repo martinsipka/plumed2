@@ -3,7 +3,7 @@ This is a fork of [PLUMED repository](https://www.plumed.org/). It contains smal
  - Initialize plumed calculator from plumed.dat file. **Set correct units (important!)**
  - Run MD simulation calculate the energy and forces from unbiased Hamiltonian and calculate also CVs with their gradients. 
  - Send CVs and their gradients to PLUMED using cmd interface and methods implemented for this reason. 
- - Get bias and biasing forces from plumed after bias calculation **Careful about the units the collective variables are in! PLUMED does not know the type of CV constructed.**
+ - Get bias and biasing forces from plumed after bias calculation **Careful about the units the forces are in! PLUMED does not know the type of CV constructed.**
 
 An example ASE calculator for this workflow is available in TODO. 
 
